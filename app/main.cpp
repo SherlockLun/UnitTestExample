@@ -1,9 +1,10 @@
-#include "display.h"
+#include "Display.h"
+#include "Sensor.h"
 
 int main()
 {
-    Display display;
-    int temp = display.getTemperature();
+    Sensor sensor;
 
-    std::cout << "main(): Temperature is " << temp << std::endl;
+    Display display(&sensor);
+    display.showTemperature();
 }

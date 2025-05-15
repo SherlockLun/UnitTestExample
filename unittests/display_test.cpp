@@ -1,5 +1,5 @@
-#include "display.h"
-#include "sensorinterface.h"
+#include "Display.h"
+#include "Sensorinterface.h"
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
@@ -16,16 +16,16 @@ class DisplayTest : public ::testing::Test
 {
 protected:
     MockSensor mockSensor;
-    // Display *display;
+    Display *display;
 
     void SetUp() override
     {
-        // display = new Display();
+        display = new Display(&mockSensor);
     }
 
     void TearDown() override
     {
-        // delete display;
+        delete display;
     }
 };
 
@@ -33,6 +33,6 @@ TEST_F(DisplayTest, GetTemperature)
 {
     EXPECT_CALL(mockSensor, getTemperature()).WillOnce(Return(24));
 
-    int temp = mockSensor.getTemperature();
+    int temp = display->showTemperature();
     EXPECT_EQ(temp, 24);
 }

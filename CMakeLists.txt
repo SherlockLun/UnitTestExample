@@ -8,7 +8,8 @@ include_directories(${CMAKE_SOURCE_DIR}/inc)
 
 add_executable(Display
     app/main.cpp
-    src/display.cpp
+    src/Display.cpp
+    src/Sensor.cpp
 )   
 
 include(FetchContent)
@@ -22,7 +23,8 @@ enable_testing()
 
 add_executable(DisplayTest
     unittests/display_test.cpp
-    src/display.cpp
+    src/Display.cpp
+    src/Sensor.cpp
 )
 
 target_link_libraries(DisplayTest
