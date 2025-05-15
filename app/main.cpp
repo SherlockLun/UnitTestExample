@@ -1,10 +1,13 @@
-#include <iostream>
-#include "calc.hpp"
+#include "Calc.hpp"
+#include "Logger.hpp"
 
 int main()
 {
-    Calc calc;
+    Logger logger;
 
+    Calc calc(&logger);
     int result = calc.add(3, 4);
-    std::cout << "Result: " << result << std::endl;
+
+    // logger.logInfo("Adding 3 and 4");
+    logger.logInfo("Result: " + std::to_string(result));
 }
