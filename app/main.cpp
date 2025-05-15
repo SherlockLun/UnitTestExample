@@ -1,10 +1,9 @@
-#include <iostream>
-#include "calc.hpp"
+#include "display.h"
 
 int main()
 {
-    Calc calc;
+    Display display;
+    int temp = display.getTemperature();
 
-    int result = calc.add(3, 4);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "main(): Temperature is " << temp << std::endl;
 }
